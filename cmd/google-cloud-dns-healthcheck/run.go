@@ -46,7 +46,7 @@ func (r *RunCommand) ExecuteContext(ctx context.Context, args []string) error {
 
 	if len(r.intersection(record.Rrdatas)) == 0 {
 		err := fmt.Errorf("Wrong rrdatas value")
-		log.Errorf(err, fmt.Sprintf("No intersection between given rrdatas %v and record's rrdatas %v", r.Rrdatas, record.Rrdatas))
+		log.Errorf(err, "No intersection between given rrdatas %v and record's rrdatas %v", r.Rrdatas, record.Rrdatas)
 		return err
 	}
 
