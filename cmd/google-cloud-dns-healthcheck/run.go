@@ -156,15 +156,15 @@ func (r *RunCommand) updateDnsRecord(dnsService *dns.Service, record *dns.Resour
 
 func (r *RunCommand) intersection(a []string) []string {
 	intersection := []string{}
-	hash := make(map[string]bool)
+	hash := map[string]bool{}
 
-	for _, str := range r.Rrdatas {
-		hash[str] = true
+	for _, rrdata := range r.Rrdatas {
+		hash[rrdata] = true
 	}
 
-	for _, str := range a {
-		if _, found := hash[str]; found {
-			intersection = append(intersection, str)
+	for _, rrdata := range a {
+		if _, found := hash[rrdata]; found {
+			intersection = append(intersection, rrdata)
 		}
 	}
 
