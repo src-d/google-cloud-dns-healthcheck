@@ -88,7 +88,7 @@ func (r *RunCommand) getDnsRecord(dnsService *dns.Service) (*dns.ResourceRecordS
 	resp, err := dnsService.ResourceRecordSets.List(r.Project, r.ManagedZone).Name(r.RecordName).Type(ResourceRecordSetTypeA).Do()
 
 	if err != nil {
-		return nil, fmt.Errorf("Record not found: %s", r.RecordName)
+		return nil, fmt.Errorf("Issues find record %s: %s", r.RecordName, err)
 	}
 
 	if len(resp.Rrsets) > 1 {
