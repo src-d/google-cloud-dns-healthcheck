@@ -105,14 +105,15 @@ func (r *RunCommand) checkRrdatas() []string {
 	}
 
 	healthyRrdatas := []string{}
-	for _, ip := range r.Rrdatas {
+	for _, rrdata := range r.Rrdatas {
+		host := rrdata // we may add a port here
 		if len(r.HttpPort) > 0 {
-			ip = fmt.Sprintf("%s:%s", ip, r.HttpPort)
+			host = fmt.Sprintf("%s:%s", host, r.HttpPort)
 		}
 
 		u := &url.URL{
 			Scheme: r.HttpScheme,
-			Host:   ip,
+			Host:   host,
 			Path:   r.HealthcheckPath,
 		}
 
@@ -124,7 +125,7 @@ func (r *RunCommand) checkRrdatas() []string {
 
 		if res.StatusCode >= http.StatusOK && res.StatusCode < http.StatusBadRequest {
 			log.Infof("Success probing for %s", u.String())
-			healthyRrdatas = append(healthyRrdatas, ip)
+			healthyRrdatas = append(healthyRrdatas, rrdata)
 		} else {
 			log.Warningf("Error probing for %s: %d code", u.String(), res.StatusCode)
 		}
