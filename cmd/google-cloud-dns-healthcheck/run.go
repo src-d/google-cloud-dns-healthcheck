@@ -28,7 +28,7 @@ type RunCommand struct {
 	Rrdatas          []string `short:"r" long:"rrdatas" required:"true" env:"RRDATAS" env-delim:"," description:"Expected rrdatas (in comma-separated format from env variable)"`
 	HttpTimeout      int64    `short:"t" long:"http-timeout" env:"HTTP_TIMEOUT" default:"5" description:"Expected rrdatas comma-separated format"`
 	HttpScheme       string   `short:"s" long:"http-scheme" env:"HTTP_SCHEME" default:"http" description:"Http scheme"`
-	HttpPort         string   `short:"P" long:"port" env:"HTTP_PORT" description:"Port for the HTTP connections"`
+	HttpPort         string   `short:"P" long:"http-port" env:"HTTP_PORT" description:"Port for the HTTP connections"`
 	DryRun           bool     `short:"d" long:"dry-run" description:"Run without performing any modification"`
 }
 
