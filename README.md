@@ -3,7 +3,7 @@
 This program checks the health of the IPs contained in a Google DNS record via http probes and updates the record accordingly.
 
 ```
-$ ./build/google-cloud-dns-healthcheck_darwin_amd64/google-cloud-dns-healthcheck run --help
+$ google-cloud-dns-healthcheck run --help
 Usage:
   google-cloud-dns-healthcheck [OPTIONS] run [run-OPTIONS]
 
