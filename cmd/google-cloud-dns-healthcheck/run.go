@@ -55,13 +55,13 @@ func (r *RunCommand) ExecuteContext(ctx context.Context, args []string) error {
 
 	switch len(healthyRrdatas) {
 	case len(record.Rrdatas):
-		log.Debugf("All rrdatas are healthy")
+		log.Infof("All rrdatas are healthy")
 		return nil
 	case 0:
 		log.Warningf("All rrdatas are unhealthy. We won't touch the record")
 		return nil
 	default:
-		log.Debugf("Updating record")
+		log.Infof("Updating record")
 		if err := r.updateDnsRecord(dnsService, record, healthyRrdatas); err != nil {
 			log.Errorf(err, "Error changing DNS RecordSet")
 			return err
