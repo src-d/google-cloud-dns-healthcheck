@@ -1,4 +1,4 @@
-module github.com/rporres/google-cloud-dns-healthcheck/cmd/google-cloud-dns-healthcheck
+module github.com/src-d/google-cloud-dns-healthcheck/cmd/google-cloud-dns-healthcheck
 
 require (
 	github.com/golang/mock v1.2.0 // indirect
