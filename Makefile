@@ -2,7 +2,6 @@
 PROJECT = google-cloud-dns-healthcheck
 COMMANDS = cmd/google-cloud-dns-healthcheck
 DOCKERFILES = Dockerfile:$(PROJECT)
-DOCKER_ORG = "rporres"
 
 # Including ci Makefile
 CI_REPOSITORY ?= https://github.com/src-d/ci.git
